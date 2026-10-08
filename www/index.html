@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+
+    <script src="cordova.js"></script>
+    <script src="components/loader.js"></script>
+
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        let Numero01;
+        let Numero02;
+        let Resultado;
+
+        function somar() {
+            Numero01 = parseInt(document.getElementById('inputNumero01').value);
+            Numero02 = parseInt(document.getElementById('inputNumero02').value);
+
+            Resultado = Numero01 + Numero02;
+
+            document.getElementById('exibirResultado').innerHTML = Resultado;
+        }
+
+        function subtrair() {
+            Numero01 = parseInt(document.getElementById('inputNumero01').value);
+            Numero02 = parseInt(document.getElementById('inputNumero02').value);
+
+            Resultado = Numero01 - Numero02;
+
+            document.getElementById('exibirResultado').innerHTML = Resultado;
+        }
+
+        function multiplicar() {
+            Numero01 = parseInt(document.getElementById('inputNumero01').value);
+            Numero02 = parseInt(document.getElementById('inputNumero02').value);
+
+            Resultado = Numero01 * Numero02;
+
+            document.getElementById('exibirResultado').innerHTML = Resultado;
+        }
+
+        function dividir() {
+            Numero01 = parseInt(document.getElementById('inputNumero01').value);
+            Numero02 = parseInt(document.getElementById('inputNumero02').value);
+
+            if (Numero02 === 0) {
+                document.getElementById('exibirResultado').innerHTML = "Não é possível dividir por zero!";
+            } else {
+                Resultado = Numero01 / Numero02;
+
+                document.getElementById('exibirResultado').innerHTML = Resultado;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <input type="number" id="inputNumero01" placeholder="Insira o primeiro número">
+
+    <input type="number" id="inputNumero02" placeholder="Insira o segundo número">
+
+    <input type="button" id="btnSomar" value="SOMAR" onclick="somar()">
+
+    <input type="button" id="btnSubtrair" value="SUBTRAIR" onclick="subtrair()">
+
+    <input type="button" id="btnMultiplicar" value="MULTIPLICAR" onclick="multiplicar()">
+
+    <input type="button" id="btnDividir" value="DIVIDIR" onclick="dividir()">
+
+    <h2 id="exibirResultado"></h2>
+
+</body>
+</html>
